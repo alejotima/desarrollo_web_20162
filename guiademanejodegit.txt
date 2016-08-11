@@ -1,0 +1,19 @@
+guia de manejo de git
+
+subir cambios:
+	modifica el archivo y lo guarda
+	
+	git add .
+
+	git commit -m "comentario"
+
+	git push -u origin master
+
+	luego debe ingresar su usuario y contraseña de github
+
+
+bajar cambios:
+
+	git pull 
+
+	el comando anterior se usa para actualizar el archivo
