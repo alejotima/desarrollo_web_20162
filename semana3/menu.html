@@ -3,45 +3,56 @@
 
 <head>
     <title>HTML Layout using Tables</title>
+    <style>
+        .contenido {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+        .borde {
+            background: tomato;
+            padding: 5px;
+            width: 50px;
+            height: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <table width="100%" border="0">
         <tr>
+            <td> <img width="" height="100" src="http://www.lasallista.edu.co/templates/ja_university/images/logo.png" alt=""> </td>
             <td>
-                <img width="" height="100" src="http://www.lasallista.edu.co/templates/ja_university/images/logo.png" alt="">
-            </td>
-            <td  >
-                <h1><font size="36" color="black">Hojas de vida de los estudiantes de desarrollo web</font></h1>
-            </td>
+                <h1><font size="36" color="black">Hojas de vida de los estudiantes de desarrollo web</font></h1> </td>
         </tr>
         <tr valign="top">
-            <td bgcolor="#007db3" width="50">
-                <b>HV´s</b>
+            <td bgcolor="#007db3" width="50"> <b>HV´s</b>
                 <ul>
-                    <li>
-                        <a href="cv1.html"><font color="white">Camilo</font></a>
-                    </li>
-                    <li>
-                        <a href="cv1.html"><font color="white">Jose</font></a>
-                    </li>
-                    <li>
-                        <a href="cv1.html"><font color="white">Yarce</font></a>
-                    </li>
+                    <li> <a href="cv1.html"><font color="white">Camilo</font></a> </li>
+                    <li> <a href="cv1.html"><font color="white">Jose</font></a> </li>
+                    <li> <a href="cv1.html"><font color="white">Yarce</font></a> </li>
                 </ul>
             </td>
-            <td bgcolor="#eee" width="100" height="200">
-                <font color="black">Practica # 1 de desarrollo Web</font>
-            </td>
+            <td bgcolor="#eee" width="100" height="200"> <font color="black">Practica # 1 de desarrollo Web</font> </td>
         </tr>
         <tr>
             <td colspan="2" bgcolor="#007db3">
-                <center>
-                    Copyright © 2016 lasallista.edu.co
-                </center>
+                <center> Copyright © 2016 lasallista.edu.co </center>
             </td>
         </tr>
     </table>
+    <table width="100%" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <div class="contenido borde">
+        <div class="borde">1</div>
+        <div class="borde">2</div>
+        <div class="borde">3</div>
+    </div>
 </body>
 
 </html>
