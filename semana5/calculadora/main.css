@@ -1,0 +1,65 @@
+/*
+*   Le damos a el HTML y al BODY el 100% de altura de la pagina.
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+
+/*
+*     Le quitamos las margenes a el cuerpo de la pagina
+*/
+
+body {
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cuerpo-calculadora {
+    width: auto;
+    border: 3px solid #CED9DF;
+}
+
+.row {
+    width: auto;
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+}
+
+.boton {
+    background-color: #CED9DF;
+    width: 25px;
+    height: 20px;
+    color: #45595A;
+    margin: 2px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton:hover {
+    background-color: yellow;
+}
+
+.pantalla {
+    background-color: #8BC24A;
+    width: 100px;
+    height: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
