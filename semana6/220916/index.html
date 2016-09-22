@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="main.js"></script>
+    <style>
+        input.ng-invalid {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <!--    <div ng-controller="myCtrl" ng-init="miColor='blue'">-->
+    <!--    <div ng-controller="myCtrl" ng-init="cantidad=5;costo=1000">-->
+    <!--    <div ng-controller="myCtrl" ng-init="persona={name:'camilo', lastname:'perez'}">-->
+    <!--    <div ng-controller="myCtrl" ng-init="myArray=[1,15,4,2,6]">-->
+    <!--    <div ng-controller="myCtrl" ng-init="names=['camilo','jua','david','freddy','jose']">-->
+    <div ng-controller="myCtrl">
+        <!--        <label for="">nombre:</label>-->
+        <!--        <input type="text" placeholder="ingrese nombre" ng-model="yourName">-->
+        <!-- Manera 1 de bindear variables <h1>Hola {{yourName}}</h1>-->
+        <!--        <p ng-bind="yourName"></p>-->
+        <!-- Expression <p>mi primera expresion {{6+6}}</p>-->
+        <!-- ng-init  <input type="text" style="background-color:{{miColor}}" ng-model="miColor" value="{{myColor}}">-->
+        <!--        <p>Total: {{cantidad * yourName}}</p>-->
+        <!--        <p> El nombre es : {{persona.name}} - {{persona.lastname}}</p>-->
+        <!--        <p> La posición del array 2 es : {{myArray[1]}}</p>-->
+        <!--        <div mi-directiva></div>-->
+        <!--        <mi-directiva></mi-directiva>-->
+        <!--
+                <p>Ejemplo de loop</p>
+                <ul>
+                    <li ng-repeat="name in names">
+                        {{name}}
+                    </li>
+                </ul>
+        -->
+        <!--
+                <p>Ejemplo de loop 2</p>
+                <ul>
+                    <li ng-repeat="obj in fullName">
+                        {{obj.name}} - {{obj.lastname}}
+                    </li>
+                </ul>
+        -->
+        <!--        <div mi-directiva-h1></div>-->
+        <!--        <mi-directiva-h1></mi-directiva-h1>-->
+        <!--
+                <form action="" name="miFormulario">
+                    <label for="">Email:</label>
+                    <input type="email" name="miDireccion" ng-model="texto">
+                    <br>
+                    <span ng-show="miFormulario.miDireccion.$error.email">No es un Email valido!!</span>
+                    <input type="number" name="miNumero" ng-model="texto2">
+                    <br>
+                    <span ng-show="miFormulario.miNumero.$valid">No es numerico valido!!</span>
+                </form>
+        -->
+        <form action="" name="miFormulario">
+            Nombre:
+            <input type="text" name="miNombre" ng-model="miTexto" required>
+        </form>
+    </div>
+</body>
+
+</html>
