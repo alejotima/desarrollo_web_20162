@@ -1,8 +1,12 @@
 var express =require('express');
 var bodyParser = require('body-parser');
+var path = require('path')
+var morgan = require('morgan')
 var app = express();
 
+app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 var quotes = [
     {
@@ -17,7 +21,7 @@ var quotes = [
         },
     {
         id: '3',
-        author: 'Unknown',
+        author: 'Yarce',
         text: "Even the greatest was once a beginner. Don't be afraid to take that first step."
         },
     {
@@ -27,7 +31,13 @@ var quotes = [
         }
     ];
 
+app.get('/', function(req, res){
+    //res.send('hello world!!');
+    //res.json(quotes);
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
+// Este endpoint devuelve todas las citaciones
 app.get('/api/quotes', function(req, res){
     //res.send('Lista todas las citacioes');
     res.json(quotes);
@@ -42,11 +52,33 @@ app.put('/api/quotes/:id', function(req, res){
 });
 
 app.post('/api/quotes', function(req, res){
-    res.send('Inserta una citacion');
+    console.log(req.body);
+    if(!req.body.hasOwnProperty('author')||!req.body.hasOwnProperty('text')){
+        res.statusCode=400;
+        return res.send('Error 400: Quote incorrecta');
+    }
+    var newQuote = {
+        id: (parseInt(quotes[quotes.length-1].id)+1).toString(),
+        author: req.body.author,
+        text: req.body.text
+        
+    };
+    quotes.push(newQuote);
+    console.log(quotes);
+    res.json(true);
 });
 
 app.delete('/api/quotes/:id', function(req, res){
-    res.send('Borraria una citacion');
+    var index;
+    for(index = 0; index<quotes.length;++index){
+        console.log(index);
+        if(quotes[index].id===req.params.id){
+            console.log('entro a el igual')
+            quotes.splice(index,1);
+            return false;
+        }
+    }
+    res.json(true);
 });
 
 app.listen(3000, function(){

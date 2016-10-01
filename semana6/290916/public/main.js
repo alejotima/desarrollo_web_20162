@@ -1,4 +1,11 @@
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp', ['ngRoute', 'ngResource'])
+    .factory('Api', function ($resource) {
+        return {
+            Quotes: $resource('api/quotes/:id', {
+                id: '@id'
+            })
+        };
+    })
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
@@ -9,8 +16,31 @@ angular.module('myApp', ['ngRoute'])
                 controller: 'parrafoCtrl'
             })
     })
-    .controller('parrafoCtrl', function ($scope) {
-        $scope.parrafoPrueba = 'lorem';
+    .controller('parrafoCtrl', function ($scope, Api) {
+        $scope.parrafoPrueba = 'Lista de citaciones';
+        $scope.quoutes = Api.Quotes.query();
+        $scope.newQuote = {};
+
+        $scope.addQuote = function () {
+
+            $scope.newQuote = {
+                author: $scope.author,
+                text: 'esto es un texto quemado'
+            };
+            console.log($scope.newQuote);
+            Api.Quotes.save($scope.newQuote, function (data) {
+                console.log(data);
+                $scope.quoutes = Api.Quotes.query();
+            });
+        };
+        $scope.removeQuote = function (obj) {
+            console.log(obj);
+            Api.Quotes.delete({id:obj},function(data){
+                
+                console.log(data);
+                $scope.quoutes = Api.Quotes.query();
+            });
+        };
     })
     .controller('myCtrl', function ($scope) {
         $scope.yourName = '';

@@ -1,0 +1,10 @@
+<div ng-controller="parrafoCtrl">
+    <h1>{{parrafoPrueba}}</h1>
+    <input type="text" placeholder="ingrese nueva citacion" ng-model="author">
+    <button ng-click="addQuote()">Agregar</button>
+    <ul>
+        <li ng-repeat="obj in quoutes">
+            {{obj.author}} <button ng-click="removeQuote(obj.id)">X</button>
+        </li>
+    </ul>
+</div>
