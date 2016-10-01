@@ -61,17 +61,38 @@
                     <span ng-show="miFormulario.miNumero.$valid">No es numerico valido!!</span>
                 </form>
         -->
+
         <!--
                 <form action="" name="miFormulario">
                     Nombre:
                     <input type="text" name="miNombre" ng-model="miTexto" required>
                 </form>
-        -->
-        <a href="#test1">test1</a>
-        <a href="#test2">test2</a>
-        <div ng-view>
+-->
 
+        <!--
+        <h1>Precio: {{price | currency}}</h1>
+        <h1>nombre: {{nombrePrueba | uppercase}}</h1>
+        <h1>nombre: {{nombrePrueba2 | lowercase}}</h1>
+
+        <table border="1">
+            <tr>
+                <th ng-click="orderByMe('name')">Nombre</th>
+                <th ng-click="orderByMe('country')">Pais</th>
+            </tr>
+            <tr ng-repeat="obj in countries | orderBy:myOrder">
+                <td>{{obj.name}}</td>
+                <td>{{obj.country}}</td>
+            </tr>
+        </table>
+        -->
+        
+        
+        <a href="#home">home</a>
+        <a href="#parrafo">parrafo</a>
+        <div ng-view>
+            
         </div>
+
     </div>
 </body>
 

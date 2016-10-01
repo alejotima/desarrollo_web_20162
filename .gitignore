@@ -2,7 +2,9 @@
 .DS_Store?
 img.png
 semana6/test1/*
+semana6/test2/*
 semana5/parcial/*
+node_modules/
 # semana3/cv1.html
 # semana3/hv.html
 # semana3/menu.html
