@@ -1,0 +1,12 @@
+<div ng-controller="test1Ctrl">
+    <h1>{{test1}}</h1>
+    <input type="text" placeholder="Ingrese cita" ng-model="author">
+    <button ng-click="addQuote()">
+        Agregar
+    </button>
+    <ul>
+        <li ng-repeat="obj in quotes">
+            {{obj.author}} - <button ng-click="removeQuote(obj.id)">X</button>
+        </li>
+    </ul>
+</div>
