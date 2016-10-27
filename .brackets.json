@@ -1,5 +1,9 @@
 {
     "jscodehints.detectedExclusions": [
-        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/test2/server.js"
+        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/test2/server.js",
+        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/290916/public/main.js",
+        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/061016/public/main.js",
+        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/test4/client/app/main/main.js",
+        "/Users/manuelramirez/Documents/Universidades/LaSallista/repositorios/desarrollo_web_20162/semana6/test4/server/routes.js"
     ]
 }
