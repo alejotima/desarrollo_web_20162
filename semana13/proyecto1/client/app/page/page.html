@@ -1,0 +1,11 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div id="page-wrapper">
+    <div class="page-header">
+        <h1>{{page1Ctrl}}</h1>
+        <ul>
+        <li ng-repeat="obj in zips">
+            {{obj.city +'-'+ obj.state}}
+        </li>
+    </ul>
+    </div>
+</div>
