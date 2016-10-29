@@ -1,3 +1,18 @@
 .page-header {
     margin: 70px !important;
 }
+
+
+.lista {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.glyphicon {
+    font-size: 20px;
+}
+
+.item {
+    width: 100px;
+}
