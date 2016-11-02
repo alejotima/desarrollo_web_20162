@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <h1>{{parrafoPrueba}}</h1>
+        <input type="text" placeholder="ingrese nueva citacion" ng-model="author">
+        <button ng-click="addQuote()">Agregar</button>
+        <ul>
+            <li ng-repeat="obj in quoutes">
+                <input type="text" ng-value="obj.author" ng-model="obj.author">
+                <button ng-click="removeQuote(obj.id)">Eliminar</button>
+                <button ng-click="modifiedQuote(obj)">Modificar</button>
+            </li>
+        </ul>
+    </div>
+    <script src="angular.min.js"></script>
+    <script src="angular-resource.js"></script>
+    <script>
+        angular.module('myApp', ['ngResource'])
+            .factory('Api', function ($resource) {
+                return {
+                    Quotes: $resource('api/quotes/:id', {
+                        id: '@id'
+                    }, {
+                        update: {
+                            method: 'PUT'
+                        }
+                    })
+                };
+            })
+            .controller('myCtrl', function ($scope, Api) {
+                $scope.parrafoPrueba = 'Lista de citaciones';
+                $scope.quoutes = Api.Quotes.query();
+                $scope.newQuote = {};
+
+                $scope.addQuote = function () {
+
+                    $scope.newQuote = {
+                        author: $scope.author,
+                        text: 'esto es un texto quemado'
+                    };
+                    console.log($scope.newQuote);
+                    Api.Quotes.save($scope.newQuote, function (data) {
+                        console.log(data);
+                        $scope.quoutes = Api.Quotes.query();
+                    });
+                };
+                $scope.removeQuote = function (obj) {
+                    console.log(obj);
+                    Api.Quotes.delete({
+                        id: obj
+                    }, function (data) {
+
+                        console.log(data);
+                        $scope.quoutes = Api.Quotes.query();
+                    });
+                };
+                $scope.modifiedQuote = function (obj) {
+                    console.log('entro a modified - ' + obj);
+                    console.log(JSON.stringify(obj));
+
+                    Api.Quotes.update({
+                        id: obj.id
+                    }, JSON.stringify(obj), function (data) {
+
+                        console.log(data);
+                        $scope.quoutes = Api.Quotes.query();
+                    });
+                };
+            });
+    </script>
+</body>
+
+</html>
